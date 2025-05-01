@@ -14,6 +14,7 @@ const App = () => {
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} />
 
       <Routes>
+        <Route path="/" element={<AssessmentForm />} />
         <Route path="/signin" element={<LoginPage />} />
         <Route path="/signup" element={<CreateUser />} />
         <Route path="/assessment" element={<AssessmentForm />} />
