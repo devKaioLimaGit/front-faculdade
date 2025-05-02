@@ -29,8 +29,8 @@
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
     padding: 4rem;
     border-radius: 1rem;
-    width: 100%;
-    max-width: 500px;
+    /* width: 100%; */
+    /* max-width: 500px; */
     text-align: center;
     z-index: 2;
   }
@@ -94,6 +94,10 @@
   
   /* Responsividade */
   @media (max-width: 768px) {
+    .login-container{
+      overflow: hidden;
+    }
+    
     .login-box {
       padding: 2rem;
       max-width: 90%;
@@ -110,6 +114,9 @@
   }
   
   @media (max-width: 480px) {
+    .login-container{
+      overflow: hidden;
+    }
     .login-box {
       padding: 1.5rem;
       border-radius: 0.75rem;
