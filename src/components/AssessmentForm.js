@@ -13,6 +13,8 @@ const AssessmentForm = () => {
     comment: ""
   });
 
+  
+
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -20,13 +22,18 @@ const AssessmentForm = () => {
     }));
   };
 
+
+  const [button , setButton] = useState(false)
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setButton(true);
     try {
       await api.post("/assessment", formData);
       toast.success("Avaliação enviada com sucesso!");
       setFormData({ name: "", email: "", sexo: "", gender: "", comment: "" });
+      setButton(false);
     } catch (err) {
       toast.error(err.response?.data?.error || "Erro ao enviar avaliação");
     }
@@ -98,8 +105,9 @@ const AssessmentForm = () => {
           onChange={handleChange}
           required
         />
+        
+        {button ? <button type="submit" className="login-button" disabled>Por Favor Aguarde...</button> :  <button type="submit" className="login-button">Enviar Avaliação</button>}
 
-        <button type="submit" className="login-button">Enviar Avaliação</button>
       </form>
     </div>
   );
