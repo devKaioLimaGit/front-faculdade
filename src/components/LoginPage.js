@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import './LoginPage.css';
 import api from '../utils/api';
 import Cookies from 'js-cookie'; // Importando a biblioteca
+import Header from './Header';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -12,9 +13,9 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await api.post('/session', { 
-        email, 
-        password 
+      const response = await api.post('/session', {
+        email,
+        password
       }, {
         headers: {
           'Content-Type': 'application/json',
@@ -37,30 +38,41 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="overlay"></div>
-      <div className="login-box">
-        <h2 className="login-title">Login</h2>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="login-input"
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="login-input"
-        />
-        <button onClick={handleLogin} className="login-button">
-          Login
-        </button>
+    <>
+      <Header />
+      <div className="login-container">
+        <div className="overlay"></div>
+        <div className="login-box">
+          <h2 className="login-title">Login</h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault(); // Impede o comportamento padrão de recarregar a página
+              handleLogin(); // Chama a função de login
+            }}
+          >
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="login-input"
+            />
+            <input
+              type="password"
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="login-input"
+            />
+            <button type="submit" className="login-button">
+              Login
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
+  
 };
 
 export default LoginPage;

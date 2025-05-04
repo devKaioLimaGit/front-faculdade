@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify'; // Importação do toast
 import './CreateUser.css';
 import api from '../utils/api';
+import Header from './Header';
 
 function CreateUser() {
     const [name, setName] = useState('');
@@ -67,45 +68,48 @@ function CreateUser() {
     };
 
     return (
-        <div className="login-container">
-            <div className="overlay"></div>
-            <div className="login-box">
-                <h2 className="login-title">Criar Conta</h2>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        className="login-input"
-                        placeholder="Nome"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <input
-                        type="email"
-                        className="login-input"
-                        placeholder="E-mail"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        className="login-input"
-                        placeholder="Senha"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        className="login-input"
-                        placeholder="Confirmar Senha"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-                    <button type="submit" className="login-button">
-                        Criar Conta
-                    </button>
-                </form>
+        <>
+            <Header />
+            <div className="login-container">
+                <div className="overlay"></div>
+                <div className="login-box">
+                    <h2 className="login-title">Criar Conta</h2>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            className="login-input"
+                            placeholder="Nome"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <input
+                            type="email"
+                            className="login-input"
+                            placeholder="E-mail"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            className="login-input"
+                            placeholder="Senha"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            className="login-input"
+                            placeholder="Confirmar Senha"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                        <button type="submit" className="login-button">
+                            Criar Conta
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

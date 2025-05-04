@@ -7,7 +7,8 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import CreateUser from './components/CreateUser';
 import AssessmentForm from './components/AssessmentForm';
-
+import CreateFilme from './components/CreateFilme';
+import Footer from './components/Footer';
 const App = () => {
   return (
     <Router>
@@ -15,6 +16,9 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<AssessmentForm />} />
+        <Route path="/movie" element={<PrivateRoute>
+          <CreateFilme />
+        </PrivateRoute>} />
         <Route path="/signin" element={<LoginPage />} />
         <Route path="/signup" element={<CreateUser />} />
         <Route path="/assessment" element={<AssessmentForm />} />
@@ -26,8 +30,8 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        {/* Outras rotas podem ser adicionadas aqui */}
       </Routes>
+      <Footer/>
     </Router>
   );
 };

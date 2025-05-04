@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import "./AssessmentForm.css";
 import api from "../utils/api";
+import Header from "./Header";
 const AssessmentForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -40,6 +41,8 @@ const AssessmentForm = () => {
   };
 
   return (
+    <>
+    <Header/>
     <div className="login-container">
       <div className="overlay"></div>
       <form className="login-box" onSubmit={handleSubmit}>
@@ -110,6 +113,7 @@ const AssessmentForm = () => {
 
       </form>
     </div>
+    </>
   );
 };
 

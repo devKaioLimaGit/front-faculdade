@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import api from '../utils/api'; // Importando a instância da API configurada
 import Cookies from 'js-cookie'; // Importando js-cookie para acessar o cookie
+import "./LoadingSpinner.css"
 
 const PrivateRoute = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -37,7 +38,11 @@ const PrivateRoute = ({ children }) => {
   }, []);
 
   if (isAuthenticated === null) {
-    return <div>Carregando...</div>;
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
