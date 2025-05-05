@@ -24,6 +24,7 @@ const LoginPage = () => {
 
       // Verifica se o login foi bem-sucedido
       if (response.status === 200) {
+        console.log("eu não estou aqui")
         // Armazena o token no cookie
         Cookies.set('token', response.data.token, { expires: 1 }); // O cookie expira em 1 dia
 
@@ -33,7 +34,7 @@ const LoginPage = () => {
         toast.error(response.data.error || 'Erro no login');
       }
     } catch (error) {
-      toast.error('Erro de conexão ou servidor');
+      toast.error('Usuário não registrado!');
     }
   };
 
