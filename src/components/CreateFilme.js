@@ -95,6 +95,7 @@ const CreateFilme = () => {
         >
           <option value="" disabled>Gênero do Filme</option>
           <option value="Ação">Ação</option>
+          <option value="Fantasia">Fantasia</option>
           <option value="Aventura">Aventura</option>
           <option value="Comédia">Comédia</option>
           <option value="Drama">Drama</option>

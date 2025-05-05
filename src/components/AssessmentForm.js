@@ -88,6 +88,7 @@ const AssessmentForm = () => {
           required
         >
           <option value="" disabled>Gênero de Filme Favorito</option>
+          <option value="Fantasia">Fantasia</option>
           <option value="Ação">Ação</option>
           <option value="Aventura">Aventura</option>
           <option value="Comédia">Comédia</option>

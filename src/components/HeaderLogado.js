@@ -21,8 +21,8 @@ const HeaderLogado = () => {
         <Link to="/">🎬 MeuApp</Link>
       </div>
       <nav className="nav-links">
-        <Link to="/dashboard">Dashboard</Link>
         <Link to="/movie">Filmes</Link>
+        <Link to="/api">API Cria Filmes</Link>
          <Link to="/" onClick={handleLogout}>Logout</Link>
       </nav>
     </header>

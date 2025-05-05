@@ -35,7 +35,7 @@ function Dashboard() {
                     {filmes.map((filme) => (
                         <div key={filme.id} className="filme-card">
                             {filme.banner ? (
-                                <img src={filme.banner} alt={filme.name} />
+                                <img className="img" src={filme.banner} alt={filme.name} />
                             ) : (
                                 <div className="placeholder">Sem imagem</div>
                             )}
