@@ -28,7 +28,7 @@ const LoginPage = () => {
         Cookies.set('token', response.data.token, { expires: 1 }); // O cookie expira em 1 dia
 
         toast.success('Login realizado com sucesso!');
-        navigate('/dashboard');  // Redireciona para o dashboard
+        navigate('/movie');  // Redireciona para o dashboard
       } else {
         toast.error(response.data.error || 'Erro no login');
       }
