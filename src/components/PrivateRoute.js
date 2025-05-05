@@ -22,8 +22,7 @@ const PrivateRoute = ({ children }) => {
             Authorization: `Bearer ${token}`, // Enviando o token no cabeçalho Authorization
           },
         });
-
-        if (response.status === 200) {
+        if (response.data) {
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
