@@ -9,7 +9,9 @@ const CreateFilme = () => {
   const [formData, setFormData] = useState({
     name: "",
     gender: "",
-    sinopse: ""
+    sinopse: "",
+    assesment: "",
+    trailer: ""
   });
 
   const [file, setFile] = useState(null);
@@ -42,11 +44,19 @@ const CreateFilme = () => {
     e.preventDefault();
     setButton(true);
 
+    if (formData.assesment < 0 || formData.assesment > 10) {
+      toast.error("A avaliação deve estar entre 0 e 10.");
+      setButton(false);
+      return;
+    }
+
     try {
       const data = new FormData();
       data.append("name", formData.name);
       data.append("gender", formData.gender);
       data.append("sinopse", formData.sinopse);
+      data.append("trailer", formData.trailer);
+      data.append("assesment", formData.assesment);
       if (file) {
         data.append("file", file);
       }
@@ -58,7 +68,7 @@ const CreateFilme = () => {
       });
 
       toast.success("Filme enviado com sucesso!");
-      setFormData({ name: "", gender: "", sinopse: "" });
+      setFormData({ name: "", gender: "", sinopse: "", assesment: "", trailer: "" });
       setFile(null);
       setPreviewUrl(null);
       setButton(false);
@@ -70,78 +80,99 @@ const CreateFilme = () => {
 
   return (
     <>
-    <HeaderLogado/>
-    <div className="login-container">
-      <div className="overlay"></div>
-      <form className="login-box" onSubmit={handleSubmit}>
-        <h2 className="login-title">Cadastrar Novo Filme</h2>
+      <HeaderLogado />
+      <div className="login-container">
+        <div className="overlay"></div>
+        <form className="login-box" onSubmit={handleSubmit}>
+          <h2 className="login-title">Cadastrar Novo Filme</h2>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Nome do Filme"
-          className="login-input"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="text"
+            name="name"
+            placeholder="Nome do Filme"
+            className="login-input"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
-        <select
-          name="gender"
-          className="login-input"
-          value={formData.gender}
-          onChange={handleChange}
-          required
-        >
-          <option value="" disabled>Gênero do Filme</option>
-          <option value="Ação">Ação</option>
-          <option value="Fantasia">Fantasia</option>
-          <option value="Aventura">Aventura</option>
-          <option value="Comédia">Comédia</option>
-          <option value="Drama">Drama</option>
-          <option value="Terror">Terror</option>
-          <option value="Suspense">Suspense</option>
-          <option value="Romance">Romance</option>
-          <option value="Ficção Científica">Ficção Científica</option>
-          <option value="Animação">Animação</option>
-        </select>
+          <input
+            type="text"
+            name="assesment"
+            placeholder="Avaliação (0 a 10)"
+            className="login-input"
+            min="0"
+            max="10"
+            value={formData.assesment}
+            onChange={handleChange}
+            required
+          />
 
-        <textarea
-          name="sinopse"
-          placeholder="Sinopse do Filme"
-          className="login-input"
-          rows="4"
-          value={formData.sinopse}
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="text"
+            name="trailer"
+            placeholder="URL do Trailer"
+            className="login-input"
+            value={formData.trailer}
+            onChange={handleChange}
+            required
+          />
 
-        <input
-          type="file"
-          name="file"
-          className="login-input"
-          onChange={handleFileChange}
-          accept="image/*"
-          required
-        />
+          <select
+            name="gender"
+            className="login-input"
+            value={formData.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Gênero do Filme</option>
+            <option value="Ação">Ação</option>
+            <option value="Fantasia">Fantasia</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Comédia">Comédia</option>
+            <option value="Drama">Drama</option>
+            <option value="Terror">Terror</option>
+            <option value="Suspense">Suspense</option>
+            <option value="Romance">Romance</option>
+            <option value="Ficção Científica">Ficção Científica</option>
+            <option value="Animação">Animação</option>
+          </select>
 
-        {previewUrl && (
-          <div style={{ margin: "10px 0" }}>
-            <img
-              src={previewUrl}
-              alt="Pré-visualização"
-              style={{ width: "100%", maxWidth: "300px", borderRadius: "8px" }}
-            />
-          </div>
-        )}
+          <textarea
+            name="sinopse"
+            placeholder="Sinopse do Filme"
+            className="login-input"
+            rows="4"
+            value={formData.sinopse}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit" className="login-button" disabled={button}>
-          {button ? "Por Favor Aguarde..." : "Cadastrar Filme"}
-        </button>
-      </form>
-    </div>
+          <input
+            type="file"
+            name="file"
+            className="login-input"
+            onChange={handleFileChange}
+            accept="image/*"
+            required
+          />
+
+          {previewUrl && (
+            <div style={{ margin: "10px 0" }}>
+              <img
+                src={previewUrl}
+                alt="Pré-visualização"
+                style={{ width: "100%", maxWidth: "300px", borderRadius: "8px" }}
+              />
+            </div>
+          )}
+
+          <button type="submit" className="login-button" disabled={button}>
+            {button ? "Por Favor Aguarde..." : "Cadastrar Filme"}
+          </button>
+        </form>
+      </div>
     </>
-    
   );
 };
 
