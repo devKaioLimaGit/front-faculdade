@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import './MovieInfo.css';
+import "./LoadingSpinner.css"
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -157,7 +158,13 @@ function MovieInfo() {
   const truncateText = (text, maxLength = 200) =>
     text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 
-  if (loading) return <p className="loading">Carregando...</p>;
+if (loading) {
+  return (
+    <div className="loading-container">
+      <div className="spinner"></div>
+    </div>
+  );
+}
   if (error) return <p className="error">{error}</p>;
   if (!filme) return <p className="error">Nenhum dado disponível.</p>;
 

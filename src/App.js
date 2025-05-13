@@ -10,6 +10,8 @@ import AssessmentForm from './components/AssessmentForm';
 import CreateFilme from './components/CreateFilme';
 import Footer from './components/Footer';
 import MovieInfo from './components/MovieInfo';
+import Movie from './components/Movie';
+import MovieBot from './components/MovieBot';
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/bot" element={<Movie />} />
         <Route path="/signin" element={<LoginPage />} />
         <Route path="/signup" element={<CreateUser />} />
         <Route path="/assessment" element={<AssessmentForm />} />
@@ -35,6 +38,12 @@ const App = () => {
           path="/movie/info/:id"
           element={
               <MovieInfo />
+          }
+        />
+        <Route
+          path="/movie/bot/info/:id"
+          element={
+              <MovieBot/>
           }
         />
       </Routes>
