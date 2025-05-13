@@ -1,39 +1,102 @@
-.dashboard-container {
+/* Reset básico para evitar margens e preenchimentos indesejados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+  }
+  
+  .dashboard-container {
     padding: 20px;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
-.filmes-grid {
+  }
+  
+  .filmes-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
     gap: 20px;
-    margin-top: 20px;
-}
-
-.filme-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    justify-items: center;
+  }
+  
+  .filme-card {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    background: #fff;
-    transition: transform 0.2s ease;
-}
-
-
-
-.filme-card:hover {
-    transform: scale(1.03);
-}
-
-.filme-card img {
     width: 100%;
-    height: auto;
-}
-
-.filme-card h3 {
-    font-size: 16px;
-    margin: 10px 0;
-    padding: 0 10px;
-}
+    max-width: 220px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .filme-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .filme-card img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .filme-card .placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+  .filme-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .btn-saiba-mais {
+    padding: 8px 16px;
+    background-color: #00ff00;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-saiba-mais:hover {
+    background-color: #222;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .filmes-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  
+    .filme-card {
+      max-width: 200px;
+    }
+  
+    .filme-card img {
+      max-height: 250px;
+    }
+  }
+  

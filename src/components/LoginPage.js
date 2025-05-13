@@ -29,7 +29,7 @@ const LoginPage = () => {
         Cookies.set('token', response.data.token, { expires: 1 }); // O cookie expira em 1 dia
 
         toast.success('Login realizado com sucesso!');
-        navigate('/movie');  // Redireciona para o dashboard
+        navigate('/api');  // Redireciona para o dashboard
       } else {
         toast.error(response.data.error || 'Erro no login');
       }
@@ -43,12 +43,14 @@ const LoginPage = () => {
       <Header />
       <div className="login-container">
         <div className="overlay"></div>
-        <div className="login-box">
-          <h2 className="login-title">Login</h2>
+        <div className="login-box" data-aos="fade-up">
+          <h2 className="login-title" data-aos="zoom-in" data-aos-delay="100">
+            Acesse sua conta para explorar filmes incríveis!
+          </h2>
           <form
             onSubmit={(e) => {
-              e.preventDefault(); // Impede o comportamento padrão de recarregar a página
-              handleLogin(); // Chama a função de login
+              e.preventDefault();
+              handleLogin();
             }}
           >
             <input
@@ -57,6 +59,8 @@ const LoginPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="login-input"
+              data-aos="fade-right"
+              data-aos-delay="200"
             />
             <input
               type="password"
@@ -64,16 +68,24 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="login-input"
+              data-aos="fade-left"
+              data-aos-delay="300"
             />
-            <button type="submit" className="login-button">
-              Login
+            <button
+              type="submit"
+              className="login-button"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              Entrar
             </button>
           </form>
         </div>
       </div>
+
     </>
   );
-  
+
 };
 
 export default LoginPage;
