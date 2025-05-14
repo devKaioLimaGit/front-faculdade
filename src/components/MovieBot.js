@@ -122,7 +122,6 @@ if (!movie) {
     <div className="movie-info">
       <h2>{movie.name}</h2>
       <img src={movie.banner} alt={movie.name} className="movie-poster" />
-      <p><strong>Gênero:</strong> {movie.gender}</p>
       <p><strong>Ano:</strong> {movie.year}</p>
       <p><strong>Duração:</strong> {movie.duration}</p>
       <p><strong>Diretor:</strong> {movie.director}</p>
