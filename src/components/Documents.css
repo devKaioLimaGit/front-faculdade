@@ -1,0 +1,69 @@
+body{
+    background-color:  #333;
+}
+.documents-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #facc15;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #93c5fd;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+ul li, ol li {
+  margin-bottom: 10px;
+}
+
+code {
+  background-color: #333;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #f472b6;
+}
+
+.download-button {
+  display: inline-block;
+  background-color: #10b981;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.download-button:hover {
+  background-color: #059669;
+}

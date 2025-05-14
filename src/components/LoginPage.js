@@ -45,7 +45,7 @@ const LoginPage = () => {
         <div className="overlay"></div>
         <div className="login-box" data-aos="fade-up">
           <h2 className="login-title" data-aos="zoom-in" data-aos-delay="100">
-            Acesse sua conta para explorar filmes incríveis!
+            Acesse sua conta para explorar nossa API!
           </h2>
           <form
             onSubmit={(e) => {

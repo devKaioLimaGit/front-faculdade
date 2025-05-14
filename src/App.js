@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import MovieInfo from './components/MovieInfo';
 import Movie from './components/Movie';
 import MovieBot from './components/MovieBot';
-
+import Documents from './components/Documents';
 const App = () => {
   return (
     <Router>
@@ -29,7 +29,7 @@ const App = () => {
           path="/api"
           element={
             <PrivateRoute>
-              <CreateFilme />
+              <Documents/>
             </PrivateRoute>
           }
         />

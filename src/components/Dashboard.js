@@ -15,21 +15,34 @@ function Dashboard() {
   const [filmesFiltrados, setFilmesFiltrados] = useState([]);
   const [generoSelecionado, setGeneroSelecionado] = useState("");
   const [ordemNota, setOrdemNota] = useState("desc");
+  const [ordemAlfabetica, setOrdemAlfabetica] = useState("");
+  const [generosDisponiveis, setGenerosDisponiveis] = useState([]);
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
 
     const carregarFilmes = async () => {
       try {
-        const response = await axios.get(`${TMDB_BASE_URL}/movie/popular`, {
-          params: {
-            api_key: TMDB_API_KEY,
-            language: "pt-BR",
-            page: 1,
-          },
-        });
+        const [filmesResponse, generosResponse] = await Promise.all([
+          axios.get(`${TMDB_BASE_URL}/movie/popular`, {
+            params: {
+              api_key: TMDB_API_KEY,
+              language: "pt-BR",
+              page: 1,
+            },
+          }),
+          axios.get(`${TMDB_BASE_URL}/genre/movie/list`, {
+            params: {
+              api_key: TMDB_API_KEY,
+              language: "pt-BR",
+            },
+          }),
+        ]);
 
-        const filmesPopulares = response.data.results;
+        const filmesPopulares = filmesResponse.data.results;
+        const listaGeneros = generosResponse.data.genres;
+
+        setGenerosDisponiveis(listaGeneros);
 
         const filmesComReviews = await Promise.all(
           filmesPopulares.map(async (filme) => {
@@ -105,19 +118,26 @@ function Dashboard() {
     }
 
     if (ordemNota === "desc") {
-      filtrados.sort((a, b) => b.nota - a.nota); // nota maior primeiro
+      filtrados.sort((a, b) => b.nota - a.nota);
     } else {
-      filtrados.sort((a, b) => a.nota - b.nota); // nota menor primeiro
+      filtrados.sort((a, b) => a.nota - b.nota);
+    }
+
+    if (ordemAlfabetica === "asc") {
+      filtrados.sort((a, b) => a.nome.localeCompare(b.nome));
+    } else if (ordemAlfabetica === "desc") {
+      filtrados.sort((a, b) => b.nome.localeCompare(a.nome));
     }
 
     setFilmesFiltrados(filtrados);
-  }, [filmes, generoSelecionado, ordemNota]);
+  }, [filmes, generoSelecionado, ordemNota, ordemAlfabetica]);
 
   return (
     <>
       <Header />
       <div className="dashboard-container">
         <div className="filtros-container">
+          {/* Filtro por Gênero - preenchido dinamicamente */}
           <label htmlFor="genero">Filtrar por gênero:</label>
           <select
             id="genero"
@@ -125,16 +145,14 @@ function Dashboard() {
             onChange={(e) => setGeneroSelecionado(e.target.value)}
           >
             <option value="">Todos</option>
-            <option value="28">Ação</option>
-            <option value="35">Comédia</option>
-            <option value="18">Drama</option>
-            <option value="10749">Romance</option>
-            <option value="27">Terror</option>
-            <option value="16">Animação</option>
-            <option value="12">Aventura</option>
-            <option value="878">Ficção Científica</option>
+            {generosDisponiveis.map((genero) => (
+              <option key={genero.id} value={genero.id.toString()}>
+                {genero.name}
+              </option>
+            ))}
           </select>
 
+          {/* Filtro por nota */}
           <label htmlFor="ordemNota">Ordenar por nota:</label>
           <select
             id="ordemNota"
@@ -143,6 +161,18 @@ function Dashboard() {
           >
             <option value="desc">Mais avaliados</option>
             <option value="asc">Menos avaliados</option>
+          </select>
+
+          {/* Filtro por ordem alfabética */}
+          <label htmlFor="ordemAlfabetica">Ordenar por nome:</label>
+          <select
+            id="ordemAlfabetica"
+            value={ordemAlfabetica}
+            onChange={(e) => setOrdemAlfabetica(e.target.value)}
+          >
+            <option value="">Sem ordem</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
           </select>
         </div>
 
