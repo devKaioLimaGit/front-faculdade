@@ -137,6 +137,9 @@ function MovieBot() {
         <a href={movie.link} target="_blank" rel="noopener noreferrer">
           Ver no IMDB
         </a>
+                <a href={movie.star} target="_blank" rel="noopener noreferrer">
+          Ver no Estrelas
+        </a>
       </div>
 
       {/* <div className="grafico-estatisticas">
