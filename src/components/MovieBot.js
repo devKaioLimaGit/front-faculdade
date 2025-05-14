@@ -5,6 +5,8 @@ import api from "../utils/api";
 import { Bar } from "react-chartjs-2";
 import "./LoadingSpinner.css"
 import { Link } from "react-router-dom";
+import { FaImdb, FaStar } from 'react-icons/fa';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -134,12 +136,16 @@ function MovieBot() {
         <p><strong>Positivas (≥7):</strong> {movie.comentariosPositivos.length} ({movie.percentualPositivas}%)</p>
         <p><strong>Negativas (≤4):</strong> {movie.comentariosNegativos.length} ({movie.percentualNegativas}%)</p>
         <p><strong>Neutras (5-6):</strong> {movie.comentariosNeutros.length}</p> */}
-        <a href={movie.link} target="_blank" rel="noopener noreferrer">
-          Ver no IMDB
-        </a>
-                <a href={movie.star} target="_blank" rel="noopener noreferrer">
-          Ver no Estrelas
-        </a>
+        <div className="links-container">
+          <a href={movie.link} target="_blank" rel="noopener noreferrer" className="link-button imdb">
+            <FaImdb className="icon" />
+            Ver Avaliações
+          </a>
+          <a href={movie.star} target="_blank" rel="noopener noreferrer" className="link-button star">
+            <FaStar className="icon" />
+            Ver Estatística
+          </a>
+        </div>
       </div>
 
       {/* <div className="grafico-estatisticas">

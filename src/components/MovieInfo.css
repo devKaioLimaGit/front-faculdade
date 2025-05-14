@@ -22,6 +22,47 @@
   padding-bottom: 5px;
 }
 
+.links-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.link-button .icon {
+  font-size: 1.2rem;
+}
+
+.link-button.imdb {
+  background-color: #f5c518;
+  color: #000;
+}
+
+.link-button.imdb:hover {
+  background-color: #e0b716;
+}
+
+.link-button.star {
+  background-color: #ffce00;
+  color: #333;
+}
+
+.link-button.star:hover {
+  background-color: #e5b800;
+}
+
+
 .movie-poster {
   display: block;
   max-width: 300px;
