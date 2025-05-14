@@ -59,8 +59,8 @@ export default function Documents() {
             Clique no botão abaixo para baixar o software em formato <code>.zip</code> contendo todos os arquivos necessários:
           </p>
           <a
-            href="/downloads/bot-filmes.zip"
-            download
+            href="https://github.com/devKaioLimaGit/Cinemato.Graphy/tree/main"
+            target="_black"
             className="download-button"
           >
             ⬇️ Baixar Bot Scraper de Filmes
