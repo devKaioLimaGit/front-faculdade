@@ -105,17 +105,17 @@ function MovieBot() {
   const truncateText = (text, maxLength = 200) =>
     text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 
-if (loading) {
-  return (
-    <div className="loading-container">
-      <div className="spinner"></div>
-    </div>
-  );
-}
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
 
-if (!movie) {
-  return <p className="error">Filme não encontrado.</p>;
-}
+  if (!movie) {
+    return <p className="error">Filme não encontrado.</p>;
+  }
 
 
   return (
@@ -125,27 +125,30 @@ if (!movie) {
       <p><strong>Ano:</strong> {movie.year}</p>
       <p><strong>Duração:</strong> {movie.duration}</p>
       <p><strong>Diretor:</strong> {movie.director}</p>
-      <p><strong>Avaliação:</strong> {movie.assesment}</p>
+      <p><strong>Avaliação:</strong> {movie.assesment}/10</p>
       <p><strong>Sinopse:</strong> {movie.sinopse}</p>
 
       <div className="estatisticas-resumo">
         <h3>Resumo das Avaliações</h3>
-        <p><strong>Total de Avaliações:</strong> {movie.totalAvaliacoes}</p>
+        {/* <p><strong>Total de Avaliações:</strong> {movie.totalAvaliacoes}</p>
         <p><strong>Positivas (≥7):</strong> {movie.comentariosPositivos.length} ({movie.percentualPositivas}%)</p>
         <p><strong>Negativas (≤4):</strong> {movie.comentariosNegativos.length} ({movie.percentualNegativas}%)</p>
-        <p><strong>Neutras (5-6):</strong> {movie.comentariosNeutros.length}</p>
+        <p><strong>Neutras (5-6):</strong> {movie.comentariosNeutros.length}</p> */}
+        <a href={movie.link} target="_blank" rel="noopener noreferrer">
+          Ver no IMDB
+        </a>
       </div>
 
-      <div className="grafico-estatisticas">
+      {/* <div className="grafico-estatisticas">
         <h3>Distribuição das Avaliações</h3>
         {distribuicaoNotas && movie.totalAvaliacoes > 0 ? (
           <Bar data={distribuicaoNotas} options={chartOptions} />
         ) : (
           <p>Nenhuma avaliação disponível para exibir o gráfico.</p>
         )}
-      </div>
+      </div> */}
 
-      <div className="avaliacoes">
+      {/* <div className="avaliacoes">
         <h3>Avaliações Positivas</h3>
         {movie.comentariosPositivos.length > 0 ? (
           <ul>
@@ -187,10 +190,11 @@ if (!movie) {
         ) : (
           <p>Nenhuma avaliação neutra.</p>
         )}
-      </div>
-            <Link to="/bot" className="btn-voltar">
-              Voltar
-            </Link>
+      </div> */}
+
+      <Link to="/bot" className="btn-voltar">
+        Voltar
+      </Link>
     </div>
   );
 }
