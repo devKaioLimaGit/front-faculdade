@@ -12,8 +12,9 @@
   }
   
   .dashboard-container {
+    height: 200vh;
     padding: 20px;
-    height: 100%;
+ 
   }
   
   .filmes-grid {

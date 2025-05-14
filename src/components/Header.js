@@ -27,8 +27,8 @@ const Header = () => {
         </div>
 
         <nav className="nav-links">
-          <Link to="/" data-aos="fade-down" data-aos-delay="100"><FaFilm /> Filmes</Link>
-          <Link to="/bot" data-aos="fade-down" data-aos-delay="100"><FaFilm />Filmes Bot</Link>
+          <Link to="/" data-aos="fade-down" data-aos-delay="100"><FaFilm /> TMDB</Link>
+          <Link to="/bot" data-aos="fade-down" data-aos-delay="100"><FaFilm />Cinemato.Graphy</Link>
           <Link to="/assessment" data-aos="fade-down" data-aos-delay="200"><FaStar /> Avaliação</Link>
           <Link to="/signin" data-aos="fade-down" data-aos-delay="300"><FaSignInAlt /> Entrar</Link>
           <Link to="/signup" data-aos="fade-down" data-aos-delay="400"><FaUserPlus /> Cadastre-se</Link>
@@ -54,8 +54,8 @@ const Header = () => {
         >
           <FaTimes /> {/* Ícone de fechar */}
         </button>
-        <Link to="/" onClick={() => setMenuOpen(false)} data-aos="fade-right" data-aos-delay="100"><FaFilm /> Filmes</Link>
-        <Link to="/bot" onClick={() => setMenuOpen(false)} data-aos="fade-right" data-aos-delay="200"><FaFilm /> Filmes Bot</Link>
+        <Link to="/" onClick={() => setMenuOpen(false)} data-aos="fade-right" data-aos-delay="100"><FaFilm /> TMDB</Link>
+        <Link to="/bot" onClick={() => setMenuOpen(false)} data-aos="fade-right" data-aos-delay="200"><FaFilm />Cinemato.Graphy</Link>
         <Link to="/assessment" onClick={() => setMenuOpen(false)} data-aos="fade-right" data-aos-delay="200"><FaStar /> Avaliação</Link>
         <Link to="/signin" onClick={() => setMenuOpen(false)} data-aos="fade-right" data-aos-delay="300"><FaSignInAlt /> Entrar</Link>
         <Link to="/signup" onClick={() => setMenuOpen(false)} data-aos="fade-right" data-aos-delay="400"><FaUserPlus /> Cadastre-se</Link>
