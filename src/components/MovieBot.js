@@ -4,6 +4,7 @@ import './MovieInfo.css';
 import api from "../utils/api";
 import { Bar } from "react-chartjs-2";
 import "./LoadingSpinner.css"
+import { Link } from "react-router-dom";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -188,6 +189,9 @@ if (!movie) {
           <p>Nenhuma avaliação neutra.</p>
         )}
       </div>
+            <Link to="/bot" className="btn-voltar">
+              Voltar
+            </Link>
     </div>
   );
 }

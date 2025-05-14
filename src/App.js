@@ -13,6 +13,7 @@ import MovieInfo from './components/MovieInfo';
 import Movie from './components/Movie';
 import MovieBot from './components/MovieBot';
 import Documents from './components/Documents';
+import NotFound from './components/Notfound';
 const App = () => {
   return (
     <Router>
@@ -46,6 +47,7 @@ const App = () => {
               <MovieBot/>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>

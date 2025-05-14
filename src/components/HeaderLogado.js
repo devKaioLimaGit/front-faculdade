@@ -27,7 +27,7 @@ const HeaderLogado = () => {
     <>
       <header className="glass-header">
         <div className="logo" data-aos="zoom-in">
-          <Link to="/">Cinemato<span>.graphy</span></Link>
+          <Link to="/">Cinemato<span>.Graphy</span></Link>
         </div>
 
         <nav className="nav-links">

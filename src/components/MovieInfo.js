@@ -4,6 +4,7 @@ import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import './MovieInfo.css';
 import "./LoadingSpinner.css"
+import { Link } from "react-router-dom";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -158,13 +159,13 @@ function MovieInfo() {
   const truncateText = (text, maxLength = 200) =>
     text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 
-if (loading) {
-  return (
-    <div className="loading-container">
-      <div className="spinner"></div>
-    </div>
-  );
-}
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   if (error) return <p className="error">{error}</p>;
   if (!filme) return <p className="error">Nenhum dado disponível.</p>;
 
@@ -245,6 +246,9 @@ if (loading) {
           <p>Nenhuma avaliação neutra.</p>
         )}
       </div>
+      <Link to="/" className="btn-voltar">
+        Voltar
+      </Link>
     </div>
   );
 }
