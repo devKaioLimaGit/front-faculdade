@@ -45,7 +45,7 @@ export default function Documents() {
         <section className="section">
           <h2 className="section-title">🌐 Consumir a API de Filmes</h2>
           <p>
-            Caso queira consumir nossa API de filmes em seu projeto, é muito simples! 
+            Caso queira consumir nossa API de filmes em seu projeto, é muito simples!
             Basta utilizar a URL abaixo para obter todos os dados em formato <code>JSON</code>:
           </p>
           <pre className="api-url">
@@ -54,18 +54,26 @@ export default function Documents() {
         </section>
 
         <section className="section">
-          <h2 className="section-title">📥 Download do software</h2>
-          <p>
-            Clique no botão abaixo para baixar o software em formato <code>.zip</code> contendo todos os arquivos necessários:
-          </p>
-          <a
-            href="https://github.com/devKaioLimaGit/Cinemato.Graphy/tree/main"
-            target="_black"
-            className="download-button"
-          >
-            ⬇️ Baixar Bot Scraper de Filmes
-          </a>
-        </section>
+  <h2 className="section-title">📥 Download do software</h2>
+  <p>
+    Clique no botão abaixo para baixar o software em formato <code>.zip</code> contendo todos os arquivos necessários:
+  </p>
+  <a
+    href="https://github.com/devKaioLimaGit/Cinemato.Graphy/tree/main"
+    target="_black"
+    className="download-button"
+  >
+    ⬇️ Baixar Bot Scraper de Filmes
+  </a>
+  <p style={{ marginTop: "10px" }}>
+    <strong>⚠️ Atenção:</strong> Após o download, extraia o conteúdo do arquivo <code>.zip</code> diretamente na pasta <code>C:\</code> do seu sistema. Isso é necessário para que o bot funcione corretamente com os caminhos pré-configurados.
+  </p>
+  <p style={{ marginTop: "10px" }}>
+    <strong>🧩 Dica:</strong> Caso ocorra algum erro ao iniciar o bot ou ao abrir o navegador, verifique se o <strong>Mozilla Firefox</strong> está instalado em seu sistema. O bot utiliza o Firefox para automação via Selenium. A instalação não é obrigatória, mas pode ser necessária caso o navegador não esteja presente ou o caminho esteja incorreto.
+  </p>
+</section>
+
+
       </div>
     </>
   );
